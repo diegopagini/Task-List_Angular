@@ -1,0 +1,11 @@
+<section class="section tasklist">
+  <div class="container">
+    <input type="text" placeholder="Add New Task" />
+    <button class="btn" (click)="addTask()">ADD</button>
+  </div>
+  <div class="container">
+    <ul class="taskList">
+      <li *ngFor="let task of taskList">{{ task }}</li>
+    </ul>
+  </div>
+</section>
