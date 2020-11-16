@@ -1,11 +1,16 @@
 <section class="section tasklist">
   <div class="container">
-    <input type="text" placeholder="Add New Task" />
-    <button class="btn" (click)="addTask()">ADD</button>
+    <input type="text" placeholder="Add New Task" [formControl]="taskName" />
+    <button class="btn" (click)="addTask()"><i class="material-icons">add</i></button>
   </div>
   <div class="container">
     <ul class="taskList">
-      <li *ngFor="let task of taskList">{{ task }}</li>
+      <li *ngFor="let task of taskList">{{ task }}
+        <div>
+          <button class="btn" (click)="editTask()"><i class="material-icons">create</i></button>
+          <button class="btn" (click)="deleteTask()"><i class="material-icons">delete</i></button>
+        </div>
+      </li>
     </ul>
   </div>
 </section>
