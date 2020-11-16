@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ShopList } from '../interfaces/shop-list';
 
 @Component({
   selector: 'app-shop-list',
@@ -7,9 +8,10 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./shop-list.component.css'],
 })
 export class ShopListComponent implements OnInit {
-  taskList: Array<any> = [];
+  taskList: Array<ShopList> = [];
 
   taskName = new FormControl('');
+  taskPrice = new FormControl('');
 
   constructor() {}
 
@@ -20,6 +22,7 @@ export class ShopListComponent implements OnInit {
 
     } else {
       this.taskList.push(this.taskName.value);
+      this.taskList.push(this.taskPrice.value);
     }
   }
 

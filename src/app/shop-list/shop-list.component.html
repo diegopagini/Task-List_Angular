@@ -1,6 +1,7 @@
 <section class="section tasklist">
   <div class="container">
-    <input type="text" placeholder="Add New Task" [formControl]="taskName" />
+    <input type="text" placeholder="Add New Task" [formControl]="taskName" required/>
+    <input type="number" placeholder="Price" [formControl]="taskPrice | number" required/>
     <button class="btn" (click)="addTask()"><i class="material-icons">add</i></button>
   </div>
   <div class="container">

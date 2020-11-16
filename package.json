@@ -21,6 +21,7 @@
     "@angular/router": "~10.2.0",
     "jquery": "^3.5.1",
     "materialize-css": "^1.0.0",
+    "ngx-quicklink": "^0.2.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
