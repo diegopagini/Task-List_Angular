@@ -4,7 +4,7 @@
     <button class="btn" (click)="addTask()"><i class="material-icons">add</i></button>
   </div>
   <div class="container">
-    <ul class="taskList">
+    <ul class="tasklist-container">
       <li *ngFor="let task of taskList">{{ task }}
         <div>
           <button class="btn" (click)="editTask()"><i class="material-icons">create</i></button>
