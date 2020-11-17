@@ -23,8 +23,8 @@ export class TaskListComponent implements OnInit {
     }
   }
 
-  deleteTask(id) {
-    this.taskList.pop()
+  deleteTask(i) {
+    this.taskList.splice(i, 1)
   }
 
   editTask() {

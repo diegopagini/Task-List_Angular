@@ -7,8 +7,8 @@
     <ul class="tasklist-container">
       <li *ngFor="let task of taskList; index as i" class="list">{{ i+1 }}- {{ task }}
         <div>
-          <button class="btn" (click)="editTask()"><i class="material-icons">create</i></button>
-          <button class="btn" (click)="deleteTask()"><i class="material-icons">delete</i></button>
+          <button class="btn" (click)="editTask(i)"><i class="material-icons">create</i></button>
+          <button class="btn" (click)="deleteTask(i)"><i class="material-icons">delete</i></button>
         </div>
       </li>
     </ul>
