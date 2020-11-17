@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-task-list',
@@ -9,7 +9,7 @@ import { FormControl, FormsModule } from '@angular/forms';
 export class TaskListComponent implements OnInit {
   taskList: Array<any> = [];
 
-  taskName = new FormControl('');
+  taskName = new FormControl('', Validators.required);
 
   constructor() {}
 
@@ -23,7 +23,7 @@ export class TaskListComponent implements OnInit {
     }
   }
 
-  deleteTask() {
+  deleteTask(id) {
     this.taskList.pop()
   }
 

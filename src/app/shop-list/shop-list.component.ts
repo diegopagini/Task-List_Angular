@@ -21,8 +21,7 @@ export class ShopListComponent implements OnInit {
     if(this.taskName.value == '') {
 
     } else {
-      this.taskList.push(this.taskName.value);
-      this.taskList.push(this.taskPrice.value);
+      this.taskList.push(this.taskName.value, this.taskPrice.value);
     }
   }
 
