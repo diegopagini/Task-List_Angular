@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ShopList } from '../interfaces/shop-list';
 
 @Component({
@@ -8,7 +8,7 @@ import { ShopList } from '../interfaces/shop-list';
   styleUrls: ['./shop-list.component.css'],
 })
 export class ShopListComponent implements OnInit {
-  taskList: Array<ShopList> = [];
+  taskList = [];
 
   taskName = new FormControl('');
   taskPrice = new FormControl('');
@@ -18,15 +18,15 @@ export class ShopListComponent implements OnInit {
   ngOnInit(): void {}
 
   addTask() {
-    if(this.taskName.value == '') {
+    if(this.taskName.value == '' && this.taskPrice.value == '') {
 
     } else {
       this.taskList.push(this.taskName.value, this.taskPrice.value);
     }
   }
 
-  deleteTask() {
-    this.taskList.pop()
+  deleteTask(i) {
+    this.taskList.splice(i, 1)
   }
 
   editTask() {

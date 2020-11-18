@@ -27,7 +27,7 @@ export class TaskListComponent implements OnInit {
     this.taskList.splice(i, 1)
   }
 
-  editTask() {
+  editTask(i) {
     
   }
 }

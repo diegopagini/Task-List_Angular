@@ -1,8 +1,12 @@
 <nav class="nav" id="nav">
   <div class="nav-wrapper">
-    <ul class="centre">
-      <li><a routerLink="task-list" routerLinkActive="active">Task-List</a></li>
-      <li><a routerLink="shop-list" routerLinkActive="active">Shop-List</a></li>
+    <ul class="nav-ul">
+      <li>
+        <a title="Task-List"routerLink="task-list" routerLinkActive="active"><i class="material-icons">format_align_left</i></a>
+      </li>
+        <li>
+          <a title="Shop-List" routerLink="shop-list" routerLinkActive="active"><i class="material-icons">monetization_on</i></a>
+        </li>
       <li><input type="color" [formControl]="color" (click)="setBackgroundColor()"></li>
     </ul>
   </div>
