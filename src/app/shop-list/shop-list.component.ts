@@ -18,10 +18,12 @@ export class ShopListComponent implements OnInit {
   ngOnInit(): void {}
 
   addTask() {
-    if(this.taskName.value == '' && this.taskPrice.value == '') {
-
-    } else {
-      this.taskList.push({name: this.taskName.value, price: this.taskPrice.value});
+    if(this.taskName.value != '' && this.taskPrice.value != '') {
+      const task: ShopList = {
+        name: this.taskName.value, 
+        price: this.taskPrice.value
+      }
+      this.taskList.push(task);
     }
   }
 
