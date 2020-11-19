@@ -8,7 +8,7 @@ import { ShopList } from '../interfaces/shop-list';
   styleUrls: ['./shop-list.component.css'],
 })
 export class ShopListComponent implements OnInit {
-  taskList = [];
+  taskList: ShopList[] = [];
 
   taskName = new FormControl('');
   taskPrice = new FormControl('');
@@ -21,7 +21,7 @@ export class ShopListComponent implements OnInit {
     if(this.taskName.value == '' && this.taskPrice.value == '') {
 
     } else {
-      this.taskList.push(this.taskName.value, this.taskPrice.value);
+      this.taskList.push({name: this.taskName.value, price: this.taskPrice.value});
     }
   }
 
