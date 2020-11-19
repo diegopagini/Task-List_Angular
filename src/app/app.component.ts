@@ -7,6 +7,9 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
+  color = new FormControl('#ffffff')
+
   title = 'task-list';
   color = '';
 

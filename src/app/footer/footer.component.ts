@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
 export class FooterComponent implements OnInit {
   
  @Input() color: string;
-
+ 
   constructor() { }
 
   ngOnInit(): void {}
