@@ -16,10 +16,9 @@ export class TaskListComponent implements OnInit {
   ngOnInit(): void {}
 
   addTask() {
-    if(this.taskName.value == '') {
-
-    } else {
+    if(this.taskName.value != '') {
       this.taskList.push(this.taskName.value);
+      this.taskName.setValue('')
     }
   }
 

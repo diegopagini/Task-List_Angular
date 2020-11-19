@@ -1,12 +1,12 @@
 <section class="section tasklist">
   <div class="container">
     <input type="text" placeholder="Add New Task" [formControl]="taskName" required/>
-    <input type="number" placeholder="Price" [formControl]="taskPrice | currency" required/>
+    <input type="number" placeholder="Price" [formControl]="taskPrice" required/>
     <button class="btn" (click)="addTask()"><i class="material-icons">add</i></button>
   </div>
   <div class="container">
     <ul class="tasklist-container">
-      <li *ngFor="let task of taskList; index as i">{{ i+1 }}- {{ task.name }}{{ task.price }}
+      <li *ngFor="let task of taskList; index as i">{{ i+1 }}- {{ task.name }} {{ task.price | currency}}
         <div>
           <button class="btn" (click)="editTask(i)"><i class="material-icons">create</i></button>
           <button class="btn" (click)="deleteTask(i)"><i class="material-icons">delete</i></button>

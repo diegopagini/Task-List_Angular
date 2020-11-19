@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -7,14 +7,19 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  color = new FormControl('#ffffff')
+
+  @Input() color: FormControl;
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
   setBackgroundColor() {
-    document.getElementById('nav').style.background = this.color.value;
+    // document.getElementById('nav').style.background = this.color.value;
+    this.color.valueChanges.subscribe(res => {
+      res = document.getElementById('nav').style.background = this.color.value
+    })
   }
 
 }
