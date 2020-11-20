@@ -69,3 +69,11 @@ input {
   color: white;
   text-align: center;
 }
+
+.modal {
+  max-width: 400px !important;
+}
+
+.modal-close {
+  margin-right: 10% !important;
+}

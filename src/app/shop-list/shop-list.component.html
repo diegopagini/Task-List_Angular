@@ -8,10 +8,23 @@
     <ul class="tasklist-container">
       <li *ngFor="let task of taskList; index as i">{{ i+1 }}- {{ task.name }} {{ task.price | currency}}
         <div>
-          <button class="btn" (click)="editTask(i)"><i class="material-icons">create</i></button>
+          <a href="#modal1" class="btn waves-effect waves-light btn modal-trigger" (click)="editTask(i)"><i class="material-icons">create</i></a>
           <button class="btn" (click)="deleteTask(i)"><i class="material-icons">delete</i></button>
         </div>
       </li>
     </ul>
   </div>
 </section>
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Edit Task</h4>
+    <input class="input" type="text" [formControl]="editTaksName">
+    <input class="input" type="text" [formControl]="editTaskPrice">
+    
+    <hr>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn waves-effect" (click)="taskEdited()">Ok</a>
+  </div>
+</div>

@@ -1,19 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormsModule, Validators } from '@angular/forms';
 
+declare var M: any;
+
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
+
   taskList: Array<any> = [];
 
   taskName = new FormControl('', Validators.required);
+  editTaksName = new FormControl('')
+  curretValue;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems);
+    });
+  
+  }
 
   addTask() {
     if(this.taskName.value != '') {
@@ -27,6 +38,9 @@ export class TaskListComponent implements OnInit {
   }
 
   editTask(i) {
-    
+    this.editTaksName.setValue(this.taskList[i])
+  }
+  taskEdited() {
+    console.log(this.editTaksName.value)
   }
 }
