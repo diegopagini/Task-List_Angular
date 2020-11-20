@@ -1,8 +1,8 @@
 <section class="section tasklist">
   <div class="container">
-    <input type="text" placeholder="Add New Task" [formControl]="taskName" required/>
-    <input type="number" placeholder="Price" [formControl]="taskPrice" required/>
-    <button class="btn" (click)="addTask()"><i class="material-icons">add</i></button>
+    <input type="text" placeholder="Add New Item" [formControl]="taskName" required/>
+    <input type="number" placeholder="Item Price" [formControl]="taskPrice" required/>
+    <button class="btn" (click)="setTotal()" (click)="addTask()"><i class="material-icons">add</i></button>
   </div>
   <div class="container">
     <ul class="tasklist-container">
@@ -12,6 +12,9 @@
           <button class="btn" (click)="deleteTask(i)"><i class="material-icons">delete</i></button>
         </div>
       </li>
+      <div class="total-container">
+        <p class="total">{{ totalPrice | currency }}<p>
+      </div>
     </ul>
   </div>
 </section>
@@ -21,7 +24,6 @@
     <h4>Edit Task</h4>
     <input class="input" type="text" [formControl]="editTaksName">
     <input class="input" type="text" [formControl]="editTaskPrice">
-    
     <hr>
   </div>
   <div class="modal-footer">
