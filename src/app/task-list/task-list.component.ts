@@ -14,14 +14,11 @@ export class TaskListComponent implements OnInit {
 
   taskName = new FormControl('', Validators.required);
   editTaksName = new FormControl('')
-  curretValue;
+  curretValue: number;
 
   constructor() {}
 
   ngOnInit(): void {
-    // this.editTaksName.valueChanges.subscribe(value => {
-    //   console.log(value)
-    // })
     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.modal');
       var instances = M.Modal.init(elems);
@@ -41,9 +38,10 @@ export class TaskListComponent implements OnInit {
   }
 
   editTask(i) {
+    this.curretValue = i
     this.editTaksName.setValue(this.taskList[i])
   }
   taskEdited() {
-    console.log(this.editTaksName.value)
+    this.taskList[this.curretValue] = this.editTaksName.value
   }
 }

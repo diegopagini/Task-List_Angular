@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/task-list",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

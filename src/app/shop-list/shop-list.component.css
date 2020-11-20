@@ -17,6 +17,19 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
+.main-input {
+  color: white;
+  font-weight: 500;
+}
+
+.main-input:placeholder-shown {
+  font-weight: 100;
+}
+
+.list {
+  color: white !important;
+}
+
 .tasklist-container {
   display: flex;
   flex-direction: column;
