@@ -19,6 +19,9 @@ export class TaskListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    // this.editTaksName.valueChanges.subscribe(value => {
+    //   console.log(value)
+    // })
     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.modal');
       var instances = M.Modal.init(elems);

@@ -1,6 +1,7 @@
 .tasklist {
   background-image: url("../../assets/tasklist.jpg");
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -43,10 +44,12 @@
   color: #000000 !important;
 }
 
+
+
 input {
   border-bottom: 1px solid #ffffff !important;
   box-shadow: 0 1px 0 0 #ffffff !important;
-
+  text-align: center !important;
 }
 
 ::-webkit-input-placeholder {
