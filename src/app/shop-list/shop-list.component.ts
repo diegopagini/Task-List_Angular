@@ -27,6 +27,8 @@ export class ShopListComponent implements OnInit {
       var elems = document.querySelectorAll('.modal');
       var instances = M.Modal.init(elems);
     });
+
+    console.log(this.totalPrice)
   }
 
   addTask() {
@@ -42,12 +44,11 @@ export class ShopListComponent implements OnInit {
   }
 
   setTotal() {
-    let accum = 0;
+    let accum = 0
     this.taskList.forEach(el => {
-      accum + el.price
+      accum = el.price
     })
-    console.log(accum)
-    this.totalPrice = accum
+    this.totalPrice += accum
   }
 
   deleteTask(i) {
