@@ -53,7 +53,9 @@
   color: #000000 !important;
 }
 
-
+.list {
+  color: white !important;
+}
 
 input {
   border-bottom: 1px solid #ffffff !important;
