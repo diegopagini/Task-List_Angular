@@ -17,6 +17,7 @@ export class ShopListComponent implements OnInit {
   editTaksName = new FormControl('')
   editTaskPrice = new FormControl('')
   totalPrice: number = 0;
+  curretValue: number;
 
 
   constructor() {}
@@ -56,12 +57,15 @@ export class ShopListComponent implements OnInit {
   }
 
   editTask(i) {
+    this.curretValue = i
     this.editTaksName.setValue(this.taskList[i].name)
     this.editTaskPrice.setValue(this.taskList[i].price)
   }
 
   taskEdited() {
-    console.log(this.editTaksName.value)
+    this.taskList[this.curretValue].name = this.editTaksName.value
+    this.taskList[this.curretValue].price = this.editTaskPrice.value
+
   }
 
 }

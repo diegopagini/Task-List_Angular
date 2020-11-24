@@ -57,11 +57,14 @@
   color: #000000 !important;
 }
 
+.list {
+  color: white !important;
+}
+
 input {
   border-bottom: 1px solid #ffffff !important;
   box-shadow: 0 1px 0 0 #ffffff !important;
   text-align: center !important;
-
 }
 
 ::-webkit-input-placeholder {
