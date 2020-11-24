@@ -2,7 +2,7 @@
   <div class="container">
     <input class="main-input" type="text" placeholder="Add New Item" [formControl]="taskName" required/>
     <input class="main-input" type="number" placeholder="Item Price" [formControl]="taskPrice" required/>
-    <button class="btn" (click)="setTotal()" (click)="addTask()"><i class="material-icons">add</i></button>
+    <button class="btn" (click)="onAddProduct()"><i class="material-icons">add</i></button>
   </div>
   <div class="container">
     <ul class="tasklist-container">
@@ -19,7 +19,7 @@
   </div>
 </section>
 
-<div id="modal1" class="modal">
+<div id="modal1" class="modalShop">
   <div class="modal-content">
     <h4>Edit Task</h4>
     <input class="input" type="text" [formControl]="editTaksName">

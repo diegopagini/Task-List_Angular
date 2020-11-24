@@ -3,8 +3,6 @@ import { FormControl, Validators } from '@angular/forms';
 
 declare var M: any
 
-declare var M: any;
-
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',

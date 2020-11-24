@@ -11,11 +11,8 @@ export class AppComponent {
   color = new FormControl('#ffffff')
 
   title = 'task-list';
-  color = '';
 
-  constructor() { 
-
-  }
+  constructor() {  }
 
   onColorEmit(e) {
     this.color = e;
