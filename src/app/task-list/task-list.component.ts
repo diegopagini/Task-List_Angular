@@ -23,7 +23,7 @@ export class TaskListComponent implements OnInit {
       var elems = document.querySelectorAll('.modal');
       var instances = M.Modal.init(elems);
     });
-  
+
   }
 
   addTask() {
