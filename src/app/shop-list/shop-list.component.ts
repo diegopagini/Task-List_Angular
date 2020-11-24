@@ -14,30 +14,29 @@ export class ShopListComponent implements OnInit {
 
   taskName = new FormControl('');
   taskPrice = new FormControl('');
-  editTaksName = new FormControl('')
-  editTaskPrice = new FormControl('')
+  editTaksName = new FormControl('');
+  editTaskPrice = new FormControl('');
   totalPrice: number = 0;
   curretValue: number;
-
 
   constructor() {}
 
   ngOnInit(): void {
     //Modal
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       var elems = document.querySelectorAll('.modal');
       var instances = M.Modal.init(elems);
     });
 
-    console.log(this.totalPrice)
+    console.log(this.totalPrice);
   }
 
   addTask() {
-    if(this.taskName.value != '' && this.taskPrice.value != '') {
+    if (this.taskName.value != '' && this.taskPrice.value != '') {
       const task: ShopList = {
         name: this.taskName.value,
-        price: this.taskPrice.value
-      }
+        price: this.taskPrice.value,
+      };
       this.taskList.push(task);
     }
     this.taskName.setValue('');
@@ -45,27 +44,25 @@ export class ShopListComponent implements OnInit {
   }
 
   setTotal() {
-    let accum = 0
-    this.taskList.forEach(el => {
-      accum = el.price
-    })
-    this.totalPrice += accum
+    let accum = 0;
+    this.taskList.forEach((el) => {
+      accum = el.price;
+    });
+    this.totalPrice += accum;
   }
 
   deleteTask(i) {
-    this.taskList.splice(i, 1)
+    this.taskList.splice(i, 1);
   }
 
   editTask(i) {
-    this.curretValue = i
-    this.editTaksName.setValue(this.taskList[i].name)
-    this.editTaskPrice.setValue(this.taskList[i].price)
+    this.curretValue = i;
+    this.editTaksName.setValue(this.taskList[i].name);
+    this.editTaskPrice.setValue(this.taskList[i].price);
   }
 
   taskEdited() {
-    this.taskList[this.curretValue].name = this.editTaksName.value
-    this.taskList[this.curretValue].price = this.editTaskPrice.value
-
+    this.taskList[this.curretValue].name = this.editTaksName.value;
+    this.taskList[this.curretValue].price = this.editTaskPrice.value;
   }
-
 }
