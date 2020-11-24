@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ShopList } from '../interfaces/shop-list';
+
+declare var M: any;
 
 @Component({
   selector: 'app-shop-list',
@@ -12,30 +14,56 @@ export class ShopListComponent implements OnInit {
 
   taskName = new FormControl('');
   taskPrice = new FormControl('');
+  editTaksName = new FormControl('');
+  editTaskPrice = new FormControl('');
+  totalPrice: number = 0;
+  curretValue: number;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //Modal
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems);
+    });
+
+    console.log(this.totalPrice);
+  }
 
   addTask() {
-    if(this.taskName.value != '' && this.taskPrice.value != '') {
+    if (this.taskName.value != '' && this.taskPrice.value != '') {
       const task: ShopList = {
-<<<<<<< HEAD
         name: this.taskName.value, 
-=======
-        name: this.taskName.value,
->>>>>>> e9776d02c557d52f6ab227189be6fcd42f75056b
-        price: this.taskPrice.value
+        price: this.taskPrice.value,
       }
+      
       this.taskList.push(task);
     }
+    this.taskName.setValue('');
+    this.taskPrice.setValue('');
+  }
+
+  setTotal() {
+    let accum = 0;
+    this.taskList.forEach((el) => {
+      accum = el.price;
+    });
+    this.totalPrice += accum;
   }
 
   deleteTask(i) {
-    this.taskList.splice(i, 1)
+    this.taskList.splice(i, 1);
   }
 
-  editTask() {
-    
+  editTask(i) {
+    this.curretValue = i;
+    this.editTaksName.setValue(this.taskList[i].name);
+    this.editTaskPrice.setValue(this.taskList[i].price);
+  }
+
+  taskEdited() {
+    this.taskList[this.curretValue].name = this.editTaksName.value;
+    this.taskList[this.curretValue].price = this.editTaskPrice.value;
   }
 }

@@ -3,17 +3,20 @@ import { FormControl, Validators } from '@angular/forms';
 
 declare var M: any
 
+declare var M: any;
+
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
+
   taskList: Array<any> = [];
 
   taskName = new FormControl('', Validators.required);
-  taskNameEdit = new FormControl('', Validators.required);
-  currentIndex: number;
+  editTaksName = new FormControl('')
+  curretValue: number;
 
   constructor() {}
 
@@ -22,6 +25,7 @@ export class TaskListComponent implements OnInit {
       var elems = document.querySelectorAll('.modal');
       var instances = M.Modal.init(elems);
     });
+  
   }
 
   addTask() {
@@ -36,11 +40,10 @@ export class TaskListComponent implements OnInit {
   }
 
   editTask(i) {
-    this.currentIndex = i;
-    this.taskNameEdit.setValue(this.taskList[i]);
+    this.curretValue = i
+    this.editTaksName.setValue(this.taskList[i])
   }
-
-  saveChanges() {
-    this.taskList[this.currentIndex] =  this.taskNameEdit.value;
+  taskEdited() {
+    this.taskList[this.curretValue] = this.editTaksName.value
   }
 }

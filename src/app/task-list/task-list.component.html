@@ -1,14 +1,13 @@
 <section class="section tasklist">
   <div class="container">
-    <input type="text" placeholder="Add New Task" [formControl]="taskName" />
+    <input class="main-input" type="text" placeholder="Add New Task" [formControl]="taskName" />
     <button [disabled]="taskName.invalid" class="btn" (click)="addTask()"><i class="material-icons">add</i></button>
   </div>
   <div class="container">
     <ul class="tasklist-container">
       <li *ngFor="let task of taskList; index as i" class="list">{{ i+1 }}- {{ task }}
         <div>
-          <!--<button class="btn" (click)="editTask(i)"><i class="material-icons">create</i></button>-->
-          <a class="waves-effect waves-light btn modal-trigger" (click)="editTask(i)" href="#modal1"><i class="material-icons">create</i></a>
+          <a href="#modal1" class="btn waves-effect waves-light btn modal-trigger" (click)="editTask(i)"><i class="material-icons">create</i></a>
           <button class="btn" (click)="deleteTask(i)"><i class="material-icons">delete</i></button>
         </div>
       </li>
@@ -16,15 +15,13 @@
   </div>
 </section>
 
-
-<!-- Modal Structure -->
 <div id="modal1" class="modal">
   <div class="modal-content">
-    <label for="edit">Editing</label>
-    <input type="text" [formControl]="taskNameEdit">
+    <h4>Edit Task</h4>
+    <input class="input" type="text" [formControl]="editTaksName">
     <hr>
   </div>
   <div class="modal-footer">
-    <a href="#!" (click)="saveChanges()" class="modal-close waves-effect waves-green btn-flat">Guardar Cambios</a>
+    <a class="modal-close waves-effect waves-green btn waves-effect" (click)="taskEdited()">Ok</a>
   </div>
 </div>
