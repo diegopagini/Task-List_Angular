@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormsModule, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
-declare var M: any;
+declare var M: any
 
 @Component({
   selector: 'app-task-list',
@@ -23,13 +23,13 @@ export class TaskListComponent implements OnInit {
       var elems = document.querySelectorAll('.modal');
       var instances = M.Modal.init(elems);
     });
-  
+
   }
 
   addTask() {
     if(this.taskName.value != '') {
       this.taskList.push(this.taskName.value);
-      this.taskName.setValue('')
+      this.taskName.setValue('');
     }
   }
 
