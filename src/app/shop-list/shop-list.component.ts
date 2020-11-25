@@ -1,6 +1,5 @@
-import { chainedInstruction } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ShopList } from '../interfaces/shop-list';
 
 declare var M: any;
@@ -13,34 +12,49 @@ declare var M: any;
 export class ShopListComponent implements OnInit {
   taskList: ShopList[] = [];
 
-  taskName = new FormControl('');
-  taskPrice = new FormControl('');
-  editTaksName = new FormControl('')
-  editTaskPrice = new FormControl('')
-  totalPrice;
+  taskName = new FormControl('', [Validators.required]);
+  taskPrice = new FormControl('',  [Validators.required]);
+  editTaksName = new FormControl('',  [Validators.required]);
+  editTaskPrice = new FormControl('',  [Validators.required]);
 
+  shopForm: FormGroup;
+
+  totalPrice: number = 0;
+  curretValue: number;
 
   constructor() {}
 
   ngOnInit(): void {
     //Modal
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       var elems = document.querySelectorAll('.modal');
       var instances = M.Modal.init(elems);
     });
 
+    console.log(this.totalPrice);
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes)
+  get taskNameField() {
+    return this.shopForm.get('taskName');
+  }
+
+  onAddProduct() {
+    this.addTask();
+    this.setTotal();
+  }
+
+  get taskNameForm(){
+    return this.taskName.value;
   }
 
   addTask() {
-    if(this.taskName.value != '' && this.taskPrice.value != '') {
+    if (this.taskName.valid && this.taskPrice.valid) {
+
       const task: ShopList = {
         name: this.taskName.value,
-        price: this.taskPrice.value
+        price: this.taskPrice.value,
       }
+
       this.taskList.push(task);
     }
     this.taskName.setValue('');
@@ -48,22 +62,30 @@ export class ShopListComponent implements OnInit {
   }
 
   setTotal() {
-    this.totalPrice = this.taskList.reduce((accumulator, price) => 
-      accumulator + price.price, 0)
-    console.log(this.totalPrice)
+    let accum = 0;
+    this.taskList.forEach((el) => {
+      accum += el.price;
+    });
+
+    this.totalPrice = accum;
   }
 
   deleteTask(i) {
-    this.taskList.splice(i, 1)
+    this.taskList.splice(i, 1);
+
+    this.setTotal();
   }
 
   editTask(i) {
-    this.editTaksName.setValue(this.taskList[i].name)
-    this.editTaskPrice.setValue(this.taskList[i].price)
+    this.curretValue = i;
+    this.editTaksName.setValue(this.taskList[i].name);
+    this.editTaskPrice.setValue(`$ ${this.taskList[i].price}`);
+
+    this.setTotal();
   }
 
   taskEdited() {
-    console.log(this.editTaksName.value)
+    this.taskList[this.curretValue].name = this.editTaksName.value;
+    this.taskList[this.curretValue].price = this.editTaskPrice.value;
   }
-
 }

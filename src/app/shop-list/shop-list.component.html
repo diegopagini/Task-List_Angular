@@ -1,8 +1,8 @@
 <section class="section tasklist">
   <div class="container">
     <input class="main-input" type="text" placeholder="Add New Item" [formControl]="taskName" required/>
-    <input type="number" placeholder="Item Price" [formControl]="taskPrice" required/>
-    <button class="btn" (click)="setTotal()" (click)="addTask()"><i class="material-icons">add</i></button>
+    <input class="main-input" type="number" placeholder="Item Price" [formControl]="taskPrice" required/>
+    <button class="btn" (click)="onAddProduct()"><i class="material-icons">add</i></button>
   </div>
   <div class="container">
     <ul class="tasklist-container">
@@ -27,6 +27,6 @@
     <hr>
   </div>
   <div class="modal-footer">
-    <a href="#!" class="modal-close waves-effect waves-green btn waves-effect" (click)="taskEdited()">Ok</a>
+    <a class="modal-close waves-effect waves-green btn waves-effect" (click)="taskEdited()">Ok</a>
   </div>
 </div>
