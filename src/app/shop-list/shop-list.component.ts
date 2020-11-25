@@ -1,3 +1,4 @@
+import { chainedInstruction } from '@angular/compiler/src/render3/view/util';
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ShopList } from '../interfaces/shop-list';
@@ -16,7 +17,7 @@ export class ShopListComponent implements OnInit {
   taskPrice = new FormControl('');
   editTaksName = new FormControl('')
   editTaskPrice = new FormControl('')
-  totalPrice: number = 0;
+  totalPrice;
 
 
   constructor() {}
@@ -28,7 +29,10 @@ export class ShopListComponent implements OnInit {
       var instances = M.Modal.init(elems);
     });
 
-    console.log(this.totalPrice)
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes)
   }
 
   addTask() {
@@ -44,11 +48,9 @@ export class ShopListComponent implements OnInit {
   }
 
   setTotal() {
-    let accum = 0
-    this.taskList.forEach(el => {
-      accum = el.price
-    })
-    this.totalPrice += accum
+    this.totalPrice = this.taskList.reduce((accumulator, price) => 
+      accumulator + price.price, 0)
+    console.log(this.totalPrice)
   }
 
   deleteTask(i) {
